@@ -31,7 +31,7 @@ class FreeKassaTest extends TestCase
         ];
 
         if ($signature === false) {
-            $params['SIGN'] = $this->freekassa->getSignature($params['MERCHANT_ID'], $params['AMOUNT'], $this->app['config']->get('freekassa.secret_key_second'), $params['MERCHANT_ORDER_ID']);
+            $params['SIGN'] = $this->freekassa->getSignature($params['MERCHANT_ID'], $params['AMOUNT'], $this->app['config']->get('freekassa.secret_world_second'), $params['MERCHANT_ORDER_ID']);
         } else {
             $params['SIGN'] = $signature;
         }
@@ -57,8 +57,8 @@ class FreeKassaTest extends TestCase
     public function compare_form_signature()
     {
         $this->assertEquals(
-            'e9759d5cbc80ceb8716d06d7e2adc348',
-            $this->freekassa->getFormSignature('12345', '100', 'secret_key', '10')
+            'bd91683182cc3611a461868b07db33b2',
+            $this->freekassa->getFormSignature('12345', '100', 'RUB', 'secret_key', '10')
         );
     }
 
@@ -90,7 +90,7 @@ class FreeKassaTest extends TestCase
 
         $this->assertEquals(
             '7f590bc40563dc9ff96269e586ba6e65',
-            $this->freekassa->getSignature($params['MERCHANT_ID'], $params['AMOUNT'], $this->app['config']->get('freekassa.secret_key_second'), $params['MERCHANT_ORDER_ID'])
+            $this->freekassa->getSignature($params['MERCHANT_ID'], $params['AMOUNT'], $this->app['config']->get('freekassa.secret_world_second'), $params['MERCHANT_ORDER_ID'])
         );
     }
 

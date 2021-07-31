@@ -8,14 +8,19 @@ return [
     'project_id' => env('FREEKASSA_PROJECT_ID', ''),
 
     /*
+     * api key
+     */
+    'api_key' => env('FREEKASSA_API_KEY', ''),
+
+    /*
      * First project`s secret key
      */
-    'secret_key' => env('FREEKASSA_SECRET_KEY', ''),
+    'secret_world' => env('FREEKASSA_SECRET_KEY', ''),
 
     /*
      * Second project`s secret key
      */
-    'secret_key_second' => env('FREEKASSA_SECRET_KEY_SECOND', ''),
+    'secret_world_second' => env('FREEKASSA_SECRET_KEY_SECOND', ''),
 
     /*
      * Locale for payment form
@@ -23,23 +28,20 @@ return [
     'locale' => 'ru',  // ru || en
 
     /*
-     * Allowed currenc'ies https://www.free-kassa.ru/docs/api.php#ex_currencies
+     * Allowed currenc'ies https://docs.freekassa.ru/#section/1.-Vvedenie/1.2.-Nastrojka-uchetnoj-zapisi
      *
      * If currency = null, that parameter doesn`t be setted
+     * RUB,USD,EUR,UAH,KZT
      */
     'currency' => null,
 
     /*
-     * Allowed ip's https://www.free-kassa.ru/docs/api.php#step3
+     * Allowed ip's https://docs.freekassa.ru/#section/1.-Vvedenie/1.4.-Opoveshenie-o-platezhe
      */
     'allowed_ips' => [
-        '136.243.38.147',
-        '136.243.38.149',
-        '136.243.38.150',
-        '136.243.38.151',
-        '136.243.38.189',
-        '88.198.88.98',
-        '136.243.38.108',
+        '168.119.157.136',
+        '168.119.60.227',
+        '138.201.88.124',
     ],
 
     /*
@@ -72,5 +74,5 @@ return [
      * Url to init payment on FreeKassa
      * https://www.free-kassa.ru/docs/api.php#step2
      */
-    'pay_url' => 'http://www.free-kassa.ru/merchant/cash.php',
+    'pay_url' => 'https://pay.freekassa.ru/',
 ];

@@ -1,7 +1,9 @@
 {
-    "name": "maksa988/laravel-freekassa",
+    "name": "gorbacheb/laravel-freekassa",
     "description": "FreeKassa payments for Laravel",
+    "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/Gorbacheb/laravel-freekassa",
     "authors": [
         {
             "name": "maksa988",

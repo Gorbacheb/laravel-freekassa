@@ -34,7 +34,7 @@ trait ValidateTrait
      */
     public function validateSignature(Request $request)
     {
-        $sign = $this->getSignature(config('freekassa.project_id'), $request->input('AMOUNT'), config('freekassa.secret_key_second'), $request->input('MERCHANT_ORDER_ID'));
+        $sign = $this->getSignature(config('freekassa.project_id'), $request->input('AMOUNT'), config('freekassa.secret_world_second'), $request->input('MERCHANT_ORDER_ID'));
 
         if ($request->input('SIGN') != $sign) {
             return false;

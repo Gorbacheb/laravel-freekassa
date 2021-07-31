@@ -62,7 +62,7 @@ class FreeKassa
 
         // User email (optional)
         if (! is_null($email)) {
-            $query['email'] = $email;
+            $query['em'] = $email;
         }
 
         // Locale for payment form
@@ -70,13 +70,15 @@ class FreeKassa
 
         // Payment currency
         if (! is_null(config('freekassa.currency'))) {
-            $query['i'] = config('freekassa.currency');
+            $query['currency'] = config('freekassa.currency');
         }
 
         $query['s'] = $this->getFormSignature(
             config('freekassa.project_id'),
             $amount,
-            config('freekassa.secret_key'), $order_id
+            config('freekassa.secret_world'),
+            'RUB',
+            $order_id
         );
 
         // Merge url ang query and return
@@ -114,12 +116,13 @@ class FreeKassa
      * @param $project_id
      * @param $amount
      * @param $secret
+     * @param $currency
      * @param $order_id
      * @return string
      */
-    public function getFormSignature($project_id, $amount, $secret, $order_id)
+    public function getFormSignature($project_id, $amount, $secret, $currency, $order_id)
     {
-        $hashStr = $project_id.':'.$amount.':'.$secret.':'.$order_id;
+        $hashStr = $project_id.':'.$amount.':'.$secret.':'.$currency.':'.$order_id;
 
         return md5($hashStr);
     }

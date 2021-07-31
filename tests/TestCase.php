@@ -20,8 +20,8 @@ class TestCase extends Orchestra
         $this->freekassa = $this->app['freekassa'];
 
         $this->app['config']->set('freekassa.project_id', '12345');
-        $this->app['config']->set('freekassa.secret_key', 'secret_key');
-        $this->app['config']->set('freekassa.secret_key_second', 'secret_key_second');
+        $this->app['config']->set('freekassa.secret_world', 'secret_key');
+        $this->app['config']->set('freekassa.secret_world_second', 'secret_key_second');
     }
 
     /**
